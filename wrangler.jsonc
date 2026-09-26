@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "zkas-view-counter-git",
+  "main": "worker.js",
+  "compatibility_date": "2026-09-26",
+  "workers_dev": true,
+  "kv_namespaces": [
+    {
+      "binding": "SITE_VIEWS",
+      "id": "e20e5ba7ba8e493c9368f2fd0b3306aa"
+    }
+  ],
+  "routes": [
+    {
+      "pattern": "zkas.io/api/views*",
+      "zone_name": "zkas.io"
+    },
+    {
+      "pattern": "www.zkas.io/api/views*",
+      "zone_name": "zkas.io"
+    }
+  ]
+}
