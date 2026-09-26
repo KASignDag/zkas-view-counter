@@ -16,13 +16,9 @@ export default {
       let current = Number.parseInt(await env.SITE_VIEWS.get("total"), 10);
       if (!Number.isFinite(current) || current < 0) current = 0;
 
-      if (request.method === "POST") {
+      if (request.method === "GET" || request.method === "POST") {
         current += 1;
         await env.SITE_VIEWS.put("total", String(current));
-        return new Response(JSON.stringify({ views: current }), { headers });
-      }
-
-      if (request.method === "GET") {
         return new Response(JSON.stringify({ views: current }), { headers });
       }
 
